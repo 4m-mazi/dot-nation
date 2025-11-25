@@ -1,0 +1,58 @@
+// ドット国家MVP - Prismaスキーマ
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// コミュニティ
+model Community {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String
+  emoji       String
+  type        String // "discord", "other"
+  citizens    Citizen[]
+  createdAt   DateTime  @default(now())
+}
+
+// 国
+model Nation {
+  id          String    @id @default(cuid())
+  slug        String    @unique // "night", "silent", "truth"
+  name        String
+  description String    @db.Text
+  citizens    Citizen[]
+  createdAt   DateTime  @default(now())
+}
+
+// 住民
+model Citizen {
+  id       String @id @default(cuid())
+  nationId String
+  nation   Nation @relation(fields: [nationId], references: [id])
+
+  communityId String?
+  community   Community? @relation(fields: [communityId], references: [id])
+
+  name      String
+  title     String?
+  className String?
+
+  // ステータス（0〜100）
+  activity    Int // 行動力
+  creativity  Int // 創造力
+  sociability Int // 社交性
+  curiosity   Int // 好奇心
+
+  shortBio String?
+
+  createdAt DateTime @default(now())
+
+  @@index([nationId])
+  @@index([communityId])
+}
