@@ -22,61 +22,61 @@ export default async function CitizenPage({
   }
 
   return (
-    <div className='relative min-h-screen'>
-      <main className='container mx-auto px-4 py-16 max-w-4xl'>
+    <div className="relative min-h-screen">
+      <main className="container mx-auto px-4 py-16 max-w-4xl">
         {/* 戻るリンク */}
         <Link
           href={`/nations/${citizen.nation.slug}`}
-          className='inline-block mb-8 text-gray-400 hover:text-gray-200 transition-colors'
+          className="inline-block mb-8 text-gray-400 hover:text-gray-200 transition-colors"
         >
           ← {citizen.nation.name}に戻る
         </Link>
 
         {/* レトロ住民票カード */}
         <div
-          id='citizen-card'
-          className='border-8 border-gray-700 bg-linear-to-b from-gray-900 to-gray-800 p-8 mb-8 shadow-2xl'
+          id="citizen-card"
+          className="border-8 border-gray-700 bg-linear-to-b from-gray-900 to-gray-800 p-8 mb-8 shadow-2xl"
         >
           {/* ヘッダー */}
-          <div className='border-b-4 border-gray-700 pb-6 mb-6 text-center'>
-            <div className='text-sm text-gray-500 tracking-widest mb-2'>
+          <div className="border-b-4 border-gray-700 pb-6 mb-6 text-center">
+            <div className="text-sm text-gray-500 tracking-widest mb-2">
               {citizen.nation.name.toUpperCase()} CITIZEN CARD
             </div>
-            <div className='text-xs text-gray-600'>
+            <div className="text-xs text-gray-600">
               ID: {citizen.id} • Registered:{" "}
               {new Date(citizen.createdAt).toLocaleDateString("ja-JP")}
             </div>
             {citizen.community && (
-              <div className='mt-3 inline-block bg-gray-800/50 border border-gray-700 px-3 py-1 text-xs text-gray-400'>
+              <div className="mt-3 inline-block bg-gray-800/50 border border-gray-700 px-3 py-1 text-xs text-gray-400">
                 {citizen.community.emoji} {citizen.community.name}
               </div>
             )}
           </div>
 
           {/* メイン情報 */}
-          <div className='grid md:grid-cols-2 gap-8 mb-8'>
+          <div className="grid md:grid-cols-2 gap-8 mb-8">
             {/* 左側: 基本情報 */}
             <div>
-              <div className='mb-6'>
-                <div className='text-sm text-gray-500 mb-2'>NAME</div>
-                <div className='text-3xl font-bold text-gray-100 border-b-2 border-gray-700 pb-2'>
+              <div className="mb-6">
+                <div className="text-sm text-gray-500 mb-2">NAME</div>
+                <div className="text-3xl font-bold text-gray-100 border-b-2 border-gray-700 pb-2">
                   {citizen.name}
                 </div>
               </div>
 
               {citizen.title && (
-                <div className='mb-6'>
-                  <div className='text-sm text-gray-500 mb-2'>TITLE</div>
-                  <div className='text-lg text-gray-300 italic'>
+                <div className="mb-6">
+                  <div className="text-sm text-gray-500 mb-2">TITLE</div>
+                  <div className="text-lg text-gray-300 italic">
                     &quot;{citizen.title}&quot;
                   </div>
                 </div>
               )}
 
               {citizen.className && (
-                <div className='mb-6'>
-                  <div className='text-sm text-gray-500 mb-2'>CLASS</div>
-                  <div className='inline-block bg-gray-800 border-2 border-gray-600 px-4 py-2 text-gray-200'>
+                <div className="mb-6">
+                  <div className="text-sm text-gray-500 mb-2">CLASS</div>
+                  <div className="inline-block bg-gray-800 border-2 border-gray-600 px-4 py-2 text-gray-200">
                     [{citizen.className}]
                   </div>
                 </div>
@@ -85,32 +85,32 @@ export default async function CitizenPage({
 
             {/* 右側: ステータス */}
             <div>
-              <div className='text-sm text-gray-500 mb-4'>STATUS</div>
-              <div className='space-y-4'>
-                <RetroStatBar label='ACT' value={citizen.activity} />
-                <RetroStatBar label='CRE' value={citizen.creativity} />
-                <RetroStatBar label='SOC' value={citizen.sociability} />
-                <RetroStatBar label='CUR' value={citizen.curiosity} />
+              <div className="text-sm text-gray-500 mb-4">STATUS</div>
+              <div className="space-y-4">
+                <RetroStatBar label="ACT" value={citizen.activity} />
+                <RetroStatBar label="CRE" value={citizen.creativity} />
+                <RetroStatBar label="SOC" value={citizen.sociability} />
+                <RetroStatBar label="CUR" value={citizen.curiosity} />
               </div>
             </div>
           </div>
 
           {/* 自己紹介 */}
           {citizen.shortBio && (
-            <div className='border-t-4 border-gray-700 pt-6 mt-6'>
-              <div className='text-sm text-gray-500 mb-3'>BIO</div>
-              <div className='text-gray-300 leading-relaxed bg-gray-800/50 border-2 border-gray-700 p-4'>
+            <div className="border-t-4 border-gray-700 pt-6 mt-6">
+              <div className="text-sm text-gray-500 mb-3">BIO</div>
+              <div className="text-gray-300 leading-relaxed bg-gray-800/50 border-2 border-gray-700 p-4">
                 {citizen.shortBio}
               </div>
             </div>
           )}
 
           {/* フッター印章風 */}
-          <div className='border-t-4 border-gray-700 pt-6 mt-8 flex justify-between items-center'>
-            <div className='text-xs text-gray-600'>
+          <div className="border-t-4 border-gray-700 pt-6 mt-8 flex justify-between items-center">
+            <div className="text-xs text-gray-600">
               Dot Nation Official Certificate
             </div>
-            <div className='w-16 h-16 border-4 border-red-900 rounded-full flex items-center justify-center text-red-900 font-bold text-xs transform rotate-12'>
+            <div className="w-16 h-16 border-4 border-red-900 rounded-full flex items-center justify-center text-red-900 font-bold text-xs transform rotate-12">
               公式
             </div>
           </div>
@@ -125,9 +125,9 @@ function RetroStatBar({ label, value }: { label: string; value: number }) {
   const blocks = Math.floor(value / 20);
 
   return (
-    <div className='flex items-center gap-3'>
-      <div className='text-xs text-gray-500 w-8 font-bold'>{label}</div>
-      <div className='flex-1 flex gap-1'>
+    <div className="flex items-center gap-3">
+      <div className="text-xs text-gray-500 w-8 font-bold">{label}</div>
+      <div className="flex-1 flex gap-1">
         {[...Array(5)].map((_, i) => (
           <div
             // biome-ignore lint/suspicious/noArrayIndexKey: 配列が固定長で順序が変わらないため
@@ -140,7 +140,7 @@ function RetroStatBar({ label, value }: { label: string; value: number }) {
           />
         ))}
       </div>
-      <div className='text-sm text-gray-300 w-10 text-right font-bold'>
+      <div className="text-sm text-gray-300 w-10 text-right font-bold">
         {value}
       </div>
     </div>

@@ -31,6 +31,10 @@ pnpm dev
 
 Next.js 15 (App Router) / TypeScript / Tailwind CSS 4 / Prisma / PostgreSQL
 
+## 🤖 AI開発について
+
+このプロジェクトはAI(Claude/GitHub Copilot)を活用して開発されています。
+
 ---
 
 Made with 🎮 and ☕ by [@4m-mazi](https://github.com/4m-mazi)
