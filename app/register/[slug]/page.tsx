@@ -1,9 +1,9 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { NationIcon } from "@/components/NationIcon";
 import RegistrationForm from "@/components/registration-form";
 import { getCommunities } from "@/lib/actions";
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 
 export default async function RegisterPage({
   params,

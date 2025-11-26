@@ -1,8 +1,8 @@
-import { ShareButton } from "@/components/share-button";
-import { prisma } from "@/lib/prisma";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ShareButton } from "@/components/share-button";
+import { prisma } from "@/lib/prisma";
 
 type Props = {
   params: Promise<{ id: string }>;

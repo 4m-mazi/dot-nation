@@ -1,8 +1,8 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import { NationIcon } from "@/components/NationIcon";
 import { getAverageStatsByNation, getCitizensByNation } from "@/lib/data";
 import { prisma } from "@/lib/prisma";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 
 export default async function NationPage({
   params,
