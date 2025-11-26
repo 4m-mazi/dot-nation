@@ -26,6 +26,7 @@ model Nation {
   slug        String    @unique // "night", "silent", "truth"
   name        String
   description String    @db.Text
+  iconSlug    String // "moon", "dove", "flame"
   citizens    Citizen[]
   createdAt   DateTime  @default(now())
 }

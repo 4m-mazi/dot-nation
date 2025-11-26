@@ -6,8 +6,8 @@ import {
   getPopularClasses,
   getRecentCitizens,
   getTotalCitizens,
-  mockNations,
 } from "@/lib/data";
+import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
 export default async function Home() {
@@ -16,6 +16,9 @@ export default async function Home() {
   const globalStats = await getGlobalAverageStats();
   const recentCitizens = await getRecentCitizens(3);
   const popularClasses = await getPopularClasses(5);
+  const nations = await prisma.nation.findMany({
+    orderBy: { createdAt: "asc" },
+  });
 
   return (
     <div className="relative min-h-screen">
@@ -203,7 +206,7 @@ export default async function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {
               await Promise.all(
-                mockNations.map(async (nation, index) => {
+                nations.map(async (nation, index) => {
                   const population = await getCitizenCountByNation(nation.id);
 
                   return (
