@@ -1,8 +1,8 @@
 "use client";
 
-import { createCitizen } from "@/lib/actions";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { createCitizen } from "@/lib/actions";
 
 type FormData = {
   name: string;
